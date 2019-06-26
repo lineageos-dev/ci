@@ -1,0 +1,30 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/ci
+    machine: true
+    environment:
+      ANDROID_JACK_VM_ARGS: "-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4G"
+      WITH_SU: true
+    steps:
+      - checkout
+      - run:
+          name: Setup environment variables
+          command: |
+            echo 'export USE_CCACHE=1' >> $BASH_ENV
+            echo 'export CCACHE_DIR="$HOME/ci/ccache"' >> $BASH_ENV
+      - restore_cache:
+          key: lineageos-cache-key-20190626
+      - run:
+          name: Prepare environment
+          command: sudo bash .circleci/env.sh
+      - run:
+          name: Run build
+          command: bash build.sh
+      - save_cache:
+          key: lineageos-cache-key-20190626
+          paths:
+            - ccache
+      - store_artifacts:
+          path: release
+          destination: out
