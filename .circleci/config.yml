@@ -2,15 +2,15 @@ version: 2
 jobs:
   build:
     working_directory: ~/ci
-    docker:
-      - image: pexcn/docker-images:stretch-android
+    machine: true
     environment:
+      USE_CCACHE: 1
       ANDROID_JACK_VM_ARGS: "-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4G"
       WITH_SU: true
     steps:
       - checkout
       - restore_cache:
-          key: cache-20190628
+          key: cache-20190629
       - run:
           name: Prepare
           command: bash .circleci/prepare.sh
@@ -18,7 +18,7 @@ jobs:
           name: Run build
           command: bash build.sh
       - save_cache:
-          key: cache-20190628
+          key: cache-20190629
           paths:
             - ~/.ccache
       - store_artifacts:
