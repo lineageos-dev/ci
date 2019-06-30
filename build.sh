@@ -43,6 +43,8 @@ dist_release() {
   mv lineageos/out/target/product/hammerhead/kernel release/ 2>/dev/null || true
 }
 
+while sleep 60s; do echo "keep building -> $SECONDS seconds"; done &
 get_sources
 build_firmware
 dist_release
+kill %1
