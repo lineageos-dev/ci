@@ -17,6 +17,7 @@ jobs:
       - run:
           name: Run build
           command: bash build.sh
+          no_output_timeout: 60m
       - save_cache:
           key: cache-20190629
           paths:
