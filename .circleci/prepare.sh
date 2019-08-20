@@ -26,13 +26,13 @@ sudo chmod a+x /usr/local/bin/repo
 sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 # swap
-sudo dd if=/dev/zero of=/swap count=4096 bs=1M
+sudo dd if=/dev/zero of=/swap count=8192 bs=1M
 sudo chmod 600 /swap
 sudo mkswap /swap
 sudo swapon /swap
 
 # git
-git config --global user.name "Builder"
+git config --global user.name "builder"
 git config --global user.email "build@pexcn.me"
 git config --global color.ui auto
 git config --global log.date iso
