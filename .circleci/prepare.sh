@@ -30,6 +30,7 @@ sudo dd if=/dev/zero of=/swap count=8192 bs=1M
 sudo chmod 600 /swap
 sudo mkswap /swap
 sudo swapon /swap
+sudo sysctl -w vm.swappiness=80
 
 # git
 git config --global user.name "builder"
