@@ -30,7 +30,7 @@ build_firmware() {
   breakfast lineage_hammerhead-userdebug
   lunch lineage_hammerhead-userdebug
   make org.cyanogenmod.platform-res
-  make -j2 bacon
+  make -j$(nproc) bacon
 
   cd $CUR_DIR
 }
