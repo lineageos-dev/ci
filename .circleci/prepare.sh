@@ -23,7 +23,7 @@ sudo curl -sSL https://storage.googleapis.com/git-repo-downloads/repo -o /usr/lo
 sudo chmod a+x /usr/local/bin/repo
 
 # timezone
-sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+sudo ln -sf /usr/share/zoneinfo/ROC /etc/localtime
 
 # swap
 sudo dd if=/dev/zero of=/swap count=8192 bs=1M

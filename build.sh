@@ -1,19 +1,17 @@
 #!/bin/bash -e
 
-CUR_DIR=$(pwd)
-
-mkdir lineageos
-mkdir release
-
 get_sources() {
+  mkdir lineageos
   cd lineageos
 
   repo init -u https://github.com/LineageOS/android.git -b cm-14.1 --depth 1
-  curl -sSL --create-dirs -o .repo/local_manifests/vendor.xml https://github.com/lineageos-dev/android_local_manifests/raw/cm-14.1/vendor.xml
-  curl -sSL --create-dirs -o .repo/local_manifests/remove.xml https://github.com/lineageos-dev/android_local_manifests/raw/cm-14.1/remove.xml
+  curl -sSL --create-dirs -o .repo/local_manifests/vendor.xml \
+    https://github.com/lineageos-dev/android_local_manifests/raw/cm-14.1/vendor.xml
+  curl -sSL --create-dirs -o .repo/local_manifests/remove.xml \
+    https://github.com/lineageos-dev/android_local_manifests/raw/cm-14.1/remove.xml
   repo sync -c --no-tags --no-clone-bundle -j8
 
-  cd $CUR_DIR
+  cd ..
 }
 
 build_firmware() {
@@ -30,13 +28,8 @@ build_firmware() {
   make org.cyanogenmod.platform-res
   make -j$(nproc) bacon
 
-  cd $CUR_DIR
-}
-
-dist_release() {
-  cp lineageos/out/target/product/hammerhead/lineage-*.zip* release/ 2>/dev/null || true
+  cd ..
 }
 
 get_sources
 build_firmware
-dist_release
