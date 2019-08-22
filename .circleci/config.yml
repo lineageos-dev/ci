@@ -13,10 +13,10 @@ jobs:
           key: cache-201908
       - run:
           name: Prepare
-          command: bash .circleci/prepare.sh
+          command: ./.circleci/prepare.sh
       - run:
           name: Run build
-          command: bash build.sh
+          command: ./build.sh
           no_output_timeout: 60m
       - save_cache:
           key: cache-201908
