@@ -34,11 +34,7 @@ build_firmware() {
 }
 
 dist_release() {
-  mv lineageos/out/target/product/hammerhead/*hammerhead* release/ 2>/dev/null || true
-  mv lineageos/out/target/product/hammerhead/*.img release/ 2>/dev/null || true
-  mv lineageos/out/target/product/hammerhead/*.txt release/ 2>/dev/null || true
-  mv lineageos/out/target/product/hammerhead/*.json release/ 2>/dev/null || true
-  mv lineageos/out/target/product/hammerhead/kernel release/ 2>/dev/null || true
+  cp lineageos/out/target/product/hammerhead/lineage-*.zip* release/ 2>/dev/null || true
 }
 
 get_sources
