@@ -7,6 +7,8 @@ jobs:
       USE_CCACHE: 1
       ANDROID_JACK_VM_ARGS: "-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx6G"
       WITH_SU: true
+      WITH_DEXPREOPT: true
+      WITH_DEXPREOPT_BOOT_IMG_ONLY: false
     steps:
       - checkout
       - restore_cache:
