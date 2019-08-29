@@ -17,16 +17,9 @@ get_sources() {
 build_firmware() {
   cd lineageos
 
-  #source build/envsetup.sh
-  #breakfast lineage_hammerhead-userdebug
-  #brunch lineage_hammerhead-userdebug
-
-  # workaround: https://review.lineageos.org/#/c/162577/
   source build/envsetup.sh
-  breakfast lineage_hammerhead-userdebug
   lunch lineage_hammerhead-userdebug
-  #make org.cyanogenmod.platform-res
-  make -j$(nproc) bacon
+  mka bacon
 
   cd ..
 }
