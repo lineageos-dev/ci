@@ -10,7 +10,7 @@ prepare() {
 
 release() {
   mkdir release
-  # TODO: for loop copy
+  # TODO: loop copy for multi devices.
   cp lineageos/out/target/product/hammerhead/lineage-*.zip* release/ 2>/dev/null || true
 }
 
