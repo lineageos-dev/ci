@@ -12,7 +12,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: cache-201908
+          key: cm-14.1-201908
       - run:
           name: Prepare
           command: ./.circleci/prepare.sh
@@ -24,7 +24,7 @@ jobs:
           name: Deploy
           command: ./deploy.sh
       - save_cache:
-          key: cache-201908
+          key: cm-14.1-201908
           paths:
             - ~/.ccache
       - store_artifacts:
