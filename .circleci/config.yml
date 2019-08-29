@@ -8,11 +8,11 @@ jobs:
       ANDROID_JACK_VM_ARGS: "-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx6G"
       WITH_SU: true
       WITH_DEXPREOPT: true
-      WITH_DEXPREOPT_BOOT_IMG_ONLY: false
+      WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY: false
     steps:
       - checkout
       - restore_cache:
-          key: cm-14.1-201908
+          key: lineage-15.1-201908
       - run:
           name: Prepare
           command: ./.circleci/prepare.sh
@@ -24,7 +24,7 @@ jobs:
           name: Deploy
           command: ./deploy.sh
       - save_cache:
-          key: cm-14.1-201908
+          key: lineage-15.1-201908
           paths:
             - ~/.ccache
       - store_artifacts:
