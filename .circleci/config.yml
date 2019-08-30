@@ -9,6 +9,7 @@ jobs:
       WITH_SU: true
       WITH_DEXPREOPT: true
       WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY: false
+      ALLOW_MISSING_DEPENDENCIES: true
     steps:
       - checkout
       - restore_cache:
