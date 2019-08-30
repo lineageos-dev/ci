@@ -9,7 +9,7 @@ get_sources() {
     https://github.com/lineageos-dev/android_local_manifests/raw/cm-14.1/vendor.xml
   curl -sSL --create-dirs -o .repo/local_manifests/remove.xml \
     https://github.com/lineageos-dev/android_local_manifests/raw/cm-14.1/remove.xml
-  repo sync -c --no-tags --no-clone-bundle -j8
+  repo sync -c --no-tags --no-clone-bundle -j8 -q
 
   cd ..
 }
