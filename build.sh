@@ -19,7 +19,8 @@ build_firmware() {
 
   source build/envsetup.sh
   lunch lineage_hammerhead-userdebug
-  mka bacon
+  #mka bacon
+  make -j8 bacon
 
   cd ..
 }
