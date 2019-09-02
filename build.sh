@@ -11,6 +11,18 @@ get_sources() {
   cd ..
 }
 
+replace_signing_keys() {
+  cd lineage
+
+  for key in media platform shared testkey
+  do
+    curl -sSL -o build/target/product/security/${key}.pk8 https://github.com/lineageos-dev/signing-keys/raw/master/${key}.pk8
+    curl -sSL -o build/target/product/security/${key}.x509.pem https://github.com/lineageos-dev/signing-keys/raw/master/${key}.x509.pem
+  done
+
+  cd ..
+}
+
 build_firmware() {
   cd lineage
 
@@ -23,4 +35,5 @@ build_firmware() {
 }
 
 get_sources
+replace_signing_keys
 build_firmware
