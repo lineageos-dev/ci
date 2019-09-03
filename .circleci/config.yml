@@ -11,7 +11,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: lineage-15.1-201908
+          key: cm-14.1-201908
       - run:
           name: Prepare
           command: ./.circleci/prepare.sh
